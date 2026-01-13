@@ -1,0 +1,244 @@
+@function rand($min, $max) {
+  @return random() * ($max - $min) + $min;
+}
+
+$animation-duration: 3s;
+$glitch-duration: 20%;
+$glitch-frequency: 10;
+$glitch-interval: $glitch-duration / $glitch-frequency;
+
+@mixin rgb-shift($name) {
+  @keyframes rgb-shift-#{$name} {
+    @for $i from 0 to $glitch-frequency {
+      #{$i * $glitch-interval} {
+        transform: translate(
+          #{rand(-2, 2) * 1%},
+          #{rand(-0.5, 0.5) * 1%}
+        );
+      }
+    }
+
+    #{$glitch-duration}, 100% {
+      transform: none;
+    }
+  }
+
+  animation: rgb-shift-#{$name} $animation-duration steps(1, jump-end) infinite alternate both;
+}
+
+@mixin glitch($name) {
+  @keyframes glitch-#{$name} {
+    @for $i from 0 to $glitch-frequency {
+      $left: 0%;
+      $right: 100%;
+      $top: rand(0, 90) * 1%;
+      $bottom: $top + rand(1, 10) * 1%;
+
+      #{$i * $glitch-interval} {
+        clip-path: polygon(
+          $left $top,
+          $right $top,
+          $right $bottom,
+          $left $bottom
+        );
+        transform: translate(
+          #{rand(-8, 8) * 1%},
+          #{rand(-0.5, 0.5) * 1%}
+        );
+      }
+    }
+
+    #{$glitch-duration}, 100% {
+      clip-path: none;
+      transform: none;
+    }
+  }
+
+  animation: glitch-#{$name} $animation-duration linear infinite alternate both;
+}
+
+body {
+  margin: 0;
+}
+
+.glitch {
+  background: #000 no-repeat center;
+  background-size: 0;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+
+  &::before,
+  &::after,
+ 
+  .channel {
+    background: inherit;
+    background-size: cover;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  &::before {
+    @include glitch(before);
+    content: "";
+  }
+
+  &::after {
+    @include glitch(after);
+    content: "";
+  }
+
+  .channel {
+    mix-blend-mode: screen;
+
+    &::before {
+      bottom: 0;
+      content: "";
+      display: block;
+      mix-blend-mode: multiply;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+    }
+  }
+
+  .r {
+    @include rgb-shift(r);
+
+    &::before {
+      background: #f00;
+    }
+  }
+
+  .g {
+    @include rgb-shift(g);
+
+    &::before {
+      background: #0f0;
+    }
+  }
+
+  .b {
+    @include rgb-shift(b);
+
+    &::before {
+      background: #00f;
+    }
+  }
+}
+///ここまでグリッチ用
+body{
+    margin: 0;
+    font-family: "DotGothic16", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    background-color:snow;
+    color:dimgray;
+}
+
+header{
+    background-color:ghostwhite;
+    color:black;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo{
+    font-size: 1.5em;
+    font-weight:bold; 
+}
+
+.search-bar{
+    display: flex;
+    gap: 8px;
+}
+
+    .search-bar button {
+    padding: 6px 12px;
+    font-size: 14px;
+    background: royalblue;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    }
+
+  
+    .heroName h1 {
+    font-size: 20;
+    }
+
+    .content {
+    padding: 40px 20px;
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
+    }
+
+    footer {
+    background: #2e2e2e;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    }
+
+    /* --- 検索オーバーレイ --- */
+    #searchOverlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    z-index: 9999;
+    overflow-y: auto;
+    }
+
+    #searchResults {
+    background: #fff;
+    margin: 5% auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+
+    #closeBtn {
+    float: right;
+    cursor: pointer;
+    background: #c0392b;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    }
+
+    .result-link {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+    }
+
+    .result-link:hover {
+    color: #007bff;
+    }
+.page-number {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #333;
+    z-index: 9999;
+}
