@@ -57,9 +57,6 @@ $glitch-interval: $glitch-duration / $glitch-frequency;
   animation: glitch-#{$name} $animation-duration linear infinite alternate both;
 }
 
-body {
-  margin: 0;
-}
 
 .glitch {
   background: #000 no-repeat center;
@@ -169,6 +166,15 @@ header{
     cursor: pointer;
     }
 
+    .hero {
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    text-shadow: 1px 1px 4px rgba(256,256,256,0.6);
+    text-align: center;
+    }
   
     .heroName h1 {
     font-size: 20;
