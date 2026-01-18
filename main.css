@@ -1,360 +1,224 @@
-@charset "UTF-8";
-.glitch {
-    background: #000 no-repeat center;
-    background-size: 0;
-    height: 100vh;
-    position: relative;
-    overflow: hidden;
+:root{
+  --bg:#020617;
+  --fg:#e5e7eb;
+  --muted:#94a3b8;
+  --danger:#ef4444;
 }
-.glitch::before, .glitch::after, .glitch .channel {
-    background: inherit;
-    background-size: cover;
-    bottom: 0;
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
+
+body{
+  margin:0;
+  font-family:system-ui, sans-serif;
+  background:var(--bg);
+  color:var(--fg);
 }
-.glitch::before {
-    animation: glitch-before 3s linear infinite alternate both;
-    content: "";
+
+main{
+  padding:1rem;
 }
-@keyframes glitch-before {
-    0% {
-        clip-path: polygon(0% 51.8347792673%, 100% 51.8347792673%, 100% 54.1136492935%, 0% 54.1136492935%);
-        transform: translate(5.134375728%, -0.1030425492%);
-    }
-    2% {
-        clip-path: polygon(0% 39.7808058598%, 100% 39.7808058598%, 100% 41.1953241084%, 0% 41.1953241084%);
-        transform: translate(1.3345479772%, -0.2245351071%);
-    }
-    4% {
-        clip-path: polygon(0% 62.2745338588%, 100% 62.2745338588%, 100% 64.3800888807%, 0% 64.3800888807%);
-        transform: translate(-5.4746964135%, 0.0277744681%);
-    }
-    6% {
-        clip-path: polygon(0% 31.7448117383%, 100% 31.7448117383%, 100% 33.2078210715%, 0% 33.2078210715%);
-        transform: translate(6.800893349%, -0.3733449108%);
-    }
-    8% {
-        clip-path: polygon(0% 42.7902477046%, 100% 42.7902477046%, 100% 49.7291925333%, 0% 49.7291925333%);
-        transform: translate(2.1777600619%, 0.2757287336%);
-    }
-    10% {
-        clip-path: polygon(0% 13.0749782237%, 100% 13.0749782237%, 100% 17.3540480591%, 0% 17.3540480591%);
-        transform: translate(2.4210228324%, 0.3574685881%);
-    }
-    12% {
-        clip-path: polygon(0% 7.13591164%, 100% 7.13591164%, 100% 13.7384797157%, 0% 13.7384797157%);
-        transform: translate(-3.1615328951%, -0.4210153552%);
-    }
-    14% {
-        clip-path: polygon(0% 80.4338914414%, 100% 80.4338914414%, 100% 83.3022502628%, 0% 83.3022502628%);
-        transform: translate(-2.7494011355%, -0.2646890541%);
-    }
-    16% {
-        clip-path: polygon(0% 51.8365518639%, 100% 51.8365518639%, 100% 58.093715168%, 0% 58.093715168%);
-        transform: translate(-4.6019241726%, 0.0015970866%);
-    }
-    18% {
-        clip-path: polygon(0% 43.6459728894%, 100% 43.6459728894%, 100% 52.0283668487%, 0% 52.0283668487%);
-        transform: translate(7.1082329097%, 0.3350776253%);
-    }
-    20%, 100% {
-        clip-path: none;
-        transform: none;
-    }
+
+h1{
+  font-size:1.1rem;
+  margin-bottom:1rem;
+  letter-spacing:0.08em;
 }
-.glitch::after {
-    animation: glitch-after 3s linear infinite alternate both;
-    content: "";
+
+.log-card{
+  border:1px solid #334155;
+  padding:0.5rem;
+  margin-bottom:0.5rem;
+  font-size:0.75rem;
 }
-@keyframes glitch-after {
-    0% {
-        clip-path: polygon(0% 36.7479505348%, 100% 36.7479505348%, 100% 43.7432987056%, 0% 43.7432987056%);
-        transform: translate(-3.91958242%, 0.1181735155%);
-    }
-    2% {
-        clip-path: polygon(0% 14.2708810667%, 100% 14.2708810667%, 100% 21.3598269343%, 0% 21.3598269343%);
-        transform: translate(-2.6681223652%, 0.3575398629%);
-    }
-    4% {
-        clip-path: polygon(0% 59.5120727268%, 100% 59.5120727268%, 100% 67.8361762471%, 0% 67.8361762471%);
-        transform: translate(-7.3990842759%, -0.1397287363%);
-    }
-    6% {
-        clip-path: polygon(0% 72.2103305114%, 100% 72.2103305114%, 100% 74.9058541194%, 0% 74.9058541194%);
-        transform: translate(3.1766020518%, 0.0973684732%);
-    }
-    8% {
-        clip-path: polygon(0% 29.0532185844%, 100% 29.0532185844%, 100% 38.2488073687%, 0% 38.2488073687%);
-        transform: translate(6.4169240234%, -0.4713805526%);
-    }
-    10% {
-        clip-path: polygon(0% 62.0109908339%, 100% 62.0109908339%, 100% 68.1179144876%, 0% 68.1179144876%);
-        transform: translate(-0.6072848724%, 0.0122699901%);
-    }
-    12% {
-        clip-path: polygon(0% 65.9549676903%, 100% 65.9549676903%, 100% 74.0927395371%, 0% 74.0927395371%);
-        transform: translate(1.2575893355%, -0.3207116393%);
-    }
-    14% {
-        clip-path: polygon(0% 45.5972372404%, 100% 45.5972372404%, 100% 55.4491735719%, 0% 55.4491735719%);
-        transform: translate(-3.1258829578%, -0.1837815091%);
-    }
-    16% {
-        clip-path: polygon(0% 78.8484664473%, 100% 78.8484664473%, 100% 85.6983186021%, 0% 85.6983186021%);
-        transform: translate(-6.8605633732%, 0.0812317888%);
-    }
-    18% {
-        clip-path: polygon(0% 42.6056497999%, 100% 42.6056497999%, 100% 51.3135391441%, 0% 51.3135391441%);
-        transform: translate(-1.6574464698%, 0.1616495576%);
-    }
-    20%, 100% {
-        clip-path: none;
-        transform: none;
-    }
+
+/* ===== グリッチ ===== */
+.glitch{
+  position:fixed;
+  inset:0;
+  background:repeating-linear-gradient(
+    0deg,
+    rgba(255,255,255,0.03),
+    rgba(255,255,255,0.03) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  pointer-events:none;
+  z-index:999;
 }
-.glitch .channel {
-    mix-blend-mode: screen;
+
+.hidden{ display:none; }
+
+/* ===== 警告 ===== */
+.alert-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.85);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:1000;
 }
-.glitch .channel::before {
-    bottom: 0;
-    content: "";
-    display: block;
-    mix-blend-mode: multiply;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
+
+.alert-box{
+  border:1px solid var(--danger);
+  padding:1rem;
+  width:260px;
+  text-align:center;
+  font-size:0.7rem;
 }
-.glitch .r {
-    animation: rgb-shift-r 3s steps(1, jump-end) infinite alternate both;
+
+/* ===== アクセスログ ===== */
+.access-log{
+  position:fixed;
+  bottom:0;
+  right:0;
+  background:rgba(2,6,23,0.85);
+  border-top:1px solid #334155;
+  border-left:1px solid #334155;
+  padding:0.3rem;
+  font-size:0.6rem;
+  color:var(--muted);
+  max-width:240px;
+  pointer-events:none;
 }
-@keyframes rgb-shift-r {
-    0% {
-        transform: translate(0.8627788503%, -0.1043931279%);
-    }
-    2% {
-        transform: translate(-0.4711107894%, 0.2152713376%);
-    }
-    4% {
-        transform: translate(1.5180780853%, 0.3834454376%);
-    }
-    6% {
-        transform: translate(1.1418818905%, -0.4401629758%);
-    }
-    8% {
-        transform: translate(-1.2026609858%, -0.3295513971%);
-    }
-    10% {
-        transform: translate(-0.1393739692%, 0.288173582%);
-    }
-    12% {
-        transform: translate(0.4121829806%, 0.2513382537%);
-    }
-    14% {
-        transform: translate(1.5319652742%, -0.1437836014%);
-    }
-    16% {
-        transform: translate(-0.5035462912%, 0.0599483318%);
-    }
-    18% {
-        transform: translate(-1.156262457%, -0.3104891441%);
-    }
-    20%, 100% {
-        transform: none;
-    }
+
+/* ===== 状態変化 ===== */
+body.observed{
+  background:#020617;
 }
-.glitch .r::before {
-    background: #f00;
+
+body.degraded{
+  filter:contrast(0.9) brightness(0.9);
 }
-.glitch .g {
-    animation: rgb-shift-g 3s steps(1, jump-end) infinite alternate both;
+
+body.idle{
+  filter:brightness(0.8);
 }
-@keyframes rgb-shift-g {
-    0% {
-        transform: translate(-1.5979679357%, 0.3981952447%);
-    }
-    2% {
-        transform: translate(1.3112819919%, 0.2287032261%);
-    }
-    4% {
-        transform: translate(-1.738352546%, 0.4468305635%);
-    }
-    6% {
-        transform: translate(1.9326829156%, 0.203586041%);
-    }
-    8% {
-        transform: translate(1.2702819703%, -0.2855316568%);
-    }
-    10% {
-        transform: translate(1.5945251574%, -0.3470480366%);
-    }
-    12% {
-        transform: translate(1.2568155444%, -0.2924173838%);
-    }
-    14% {
-        transform: translate(0.509720394%, 0.0559726125%);
-    }
-    16% {
-        transform: translate(-1.6271334637%, -0.1299341463%);
-    }
-    18% {
-        transform: translate(1.9297240265%, 0.1263372331%);
-    }
-    20%, 100% {
-        transform: none;
-    }
+
+body.finalized{
+  cursor:default;
 }
-.glitch .g::before {
-    background: #0f0;
+
+/* ===== 最終通知 ===== */
+.final-notice{
+  position:fixed;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(2,6,23,0.96);
+  color:var(--muted);
+  font-size:0.75rem;
+  letter-spacing:0.1em;
+  z-index:1500;
 }
-.glitch .b {
-    animation: rgb-shift-b 3s steps(1, jump-end) infinite alternate both;
+:root{
+  --bg:#020617;
+  --fg:#e5e7eb;
+  --muted:#94a3b8;
+  --danger:#ef4444;
 }
-@keyframes rgb-shift-b {
-    0% {
-        transform: translate(0.4395482429%, 0.2492146264%);
-    }
-    2% {
-        transform: translate(0.2738906824%, -0.0144924519%);
-    }
-    4% {
-        transform: translate(0.9535053256%, -0.4325827274%);
-    }
-    6% {
-        transform: translate(-1.7545561124%, 0.3961464256%);
-    }
-    8% {
-        transform: translate(1.558978875%, -0.3612960114%);
-    }
-    10% {
-        transform: translate(0.5073973705%, -0.0388229047%);
-    }
-    12% {
-        transform: translate(-1.6317424931%, -0.0531261986%);
-    }
-    14% {
-        transform: translate(0.6216909406%, -0.2826805265%);
-    }
-    16% {
-        transform: translate(-0.0916752707%, -0.3404976218%);
-    }
-    18% {
-        transform: translate(0.7001566935%, 0.0250132812%);
-    }
-    20%, 100% {
-        transform: none;
-    }
+
+body{
+  margin:0;
+  font-family:system-ui, sans-serif;
+  background:var(--bg);
+  color:var(--fg);
 }
-.glitch .b::before {
-    background: #00f;
+
+main{
+  padding:1rem;
 }
-body {
-    margin: 0;
-    font-family: "DotGothic16", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    background-color: snow;
-    color: dimgray;
+
+h1{
+  font-size:1.1rem;
+  margin-bottom:1rem;
+  letter-spacing:0.08em;
 }
-header {
-    background-color: ghostwhite;
-    color: black;
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+
+.log-card{
+  border:1px solid #334155;
+  padding:0.5rem;
+  margin-bottom:0.5rem;
+  font-size:0.75rem;
 }
-.logo {
-    font-size: 1.5em;
-    font-weight: bold;
+
+/* ===== グリッチ ===== */
+.glitch{
+  position:fixed;
+  inset:0;
+  background:repeating-linear-gradient(
+    0deg,
+    rgba(255,255,255,0.03),
+    rgba(255,255,255,0.03) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  pointer-events:none;
+  z-index:999;
 }
-.search-bar {
-    display: flex;
-    gap: 8px;
+
+.hidden{ display:none; }
+
+/* ===== 警告 ===== */
+.alert-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.85);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:1000;
 }
-.search-bar button {
-    padding: 6px 12px;
-    font-size: 14px;
-    background: royalblue;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+
+.alert-box{
+  border:1px solid var(--danger);
+  padding:1rem;
+  width:260px;
+  text-align:center;
+  font-size:0.7rem;
 }
-.hero {
-    height: 400px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: black;
-    text-shadow: 1px 1px 4px rgba(255, 255, 255, 0.6);
-    text-align: center;
+
+/* ===== アクセスログ ===== */
+.access-log{
+  position:fixed;
+  bottom:0;
+  right:0;
+  background:rgba(2,6,23,0.85);
+  border-top:1px solid #334155;
+  border-left:1px solid #334155;
+  padding:0.3rem;
+  font-size:0.6rem;
+  color:var(--muted);
+  max-width:240px;
+  pointer-events:none;
 }
-.heroName h1 {
-    font-size: 20;
+
+/* ===== 状態変化 ===== */
+body.observed{
+  background:#020617;
 }
-.content {
-    padding: 40px 20px;
-    max-width: 800px;
-    margin: auto;
-    text-align: center;
+
+body.degraded{
+  filter:contrast(0.9) brightness(0.9);
 }
-footer {
-    background: #2e2e2e;
-    color: white;
-    text-align: center;
-    padding: 20px;
+
+body.idle{
+  filter:brightness(0.8);
 }
-#searchOverlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.6);
-    z-index: 9999;
-    overflow-y: auto;
+
+body.finalized{
+  cursor:default;
 }
-#searchResults {
-    background: #fff;
-    margin: 5% auto;
-    padding: 20px;
-    width: 80%;
-    max-width: 600px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-}
-#closeBtn {
-    float: right;
-    cursor: pointer;
-    background: #c0392b;
-    color: white;
-    border: none;
-    padding: 6px 12px;
-    border-radius: 4px;
-}
-.result-link {
-    display: block;
-    margin-top: 15px;
-    font-weight: bold;
-    text-decoration: none;
-    color: #333;
-}
-.result-link:hover {
-    color: #007bff;
-}
-.page-number {
-    position: fixed;
-    bottom: 10px;
-    right: 10px;
-    background: rgba(255, 255, 255, 0.8);
-    padding: 4px 8px;
-    border-radius: 4px;
-    font-size: 14px;
-    color: #333;
-    z-index: 9999;
+
+/* ===== 最終通知 ===== */
+.final-notice{
+  position:fixed;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(2,6,23,0.96);
+  color:var(--muted);
+  font-size:0.75rem;
+  letter-spacing:0.1em;
+  z-index:1500;
 }
